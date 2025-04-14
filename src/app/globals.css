@@ -1,28 +1,15 @@
 @import 'tailwindcss';
 
-:root {
-  --primary: #274494;
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
+@theme {
+  --color-primary: oklch(0.7 0.1713 22.52);
+  --color-secondary: oklch(0.3 0 0);
+  --color-details: oklch(0.77 0.1387 91.06);
+  --color-bgPrimary: oklch(0.98 0.011 63.36);
+  --color-bgSecondary: oklch(0.92 0.0388 300.28);
+  --color-dark: oklch(0.3 0 0);
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-start-rgb))
-    )
-    rgb(var(--background-end-rgb));
+  --font-body: Poppins, sans-serif;
+  --font-title: Playfair Display, sans-serif;
 }
 
 @keyframes fadeIn {
@@ -53,10 +40,11 @@ body {
   animation-name: fadeIn;
 }
 
-.btn-primary {
-  @apply bg-blue-600 hover:bg-blue-800 text-white py-2 px-4 rounded transition-all;
-}
-
-.btn-secondary {
-  @apply bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded transition-all;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-title;
 }
