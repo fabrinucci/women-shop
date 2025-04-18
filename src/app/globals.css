@@ -2,11 +2,11 @@
 
 @theme {
   --color-primary: oklch(0.7 0.1713 22.52);
-  --color-secondary: oklch(0.3 0 0);
-  --color-details: oklch(0.77 0.1387 91.06);
+  --color-secondary: oklch(0.6 0.2038 24.9);
+  --color-details: oklch(0.81 0.1677 18.53);
   --color-bgPrimary: oklch(0.98 0.011 63.36);
   --color-bgSecondary: oklch(0.92 0.0388 300.28);
-  --color-dark: oklch(0.3 0 0);
+  --color-dark: oklch(0.2 0 0);
 
   --font-body: Poppins, sans-serif;
   --font-title: Playfair Display, sans-serif;
