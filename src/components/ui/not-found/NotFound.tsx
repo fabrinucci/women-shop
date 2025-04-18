@@ -10,6 +10,7 @@ export const NotFound = () => {
         <Link
           className='bg-primary rounded-lg p-2 text-white transition-opacity hover:opacity-85'
           href='/'
+          aria-label='Volver al inicio'
         >
           Volver al inicio
         </Link>
@@ -17,10 +18,9 @@ export const NotFound = () => {
       <div>
         <Image
           src='/imgs/cartera.webp'
-          alt='Not found'
+          alt='Página no encontrada'
           height={500}
           width={500}
-          className=''
         />
       </div>
     </main>
