@@ -1,7 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import { HiOutlineShoppingBag, HiSearch } from 'react-icons/hi';
+import { Sidebar } from '@/components/ui';
+import { useUIStore } from '@/store';
 
 export const TopMenu = () => {
+  const openMenu = useUIStore((state) => state.openMenu);
+
   return (
     <nav className='bg-bgSecondary flex h-14 items-center justify-between px-2 sm:px-4'>
       <section className='mr-6'>
@@ -42,11 +48,14 @@ export const TopMenu = () => {
           </span>
         </Link>
         <button
-          className='hover:text-primary cursor-pointer p-2 uppercase transition-all duration-300'
+          onClick={openMenu}
+          className='hover:text-primary cursor-pointer p-2 uppercase transition-all duration-500'
           aria-label='Abrir menu'
         >
           Menu
         </button>
+
+        <Sidebar />
       </section>
     </nav>
   );
