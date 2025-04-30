@@ -9,7 +9,7 @@ export const TopMenu = () => {
   const openMenu = useUIStore((state) => state.openMenu);
 
   return (
-    <nav className='bg-bgSecondary flex h-14 items-center justify-between px-2 sm:px-4'>
+    <nav className='bg-bgSecondary flex h-14 items-center justify-between px-2 shadow sm:px-4'>
       <section className='mr-6'>
         <Link href='/' className='text-md' aria-label='Go to home'>
           <span className='font-semibold'>Women</span> <span> | Clothes</span>
@@ -18,9 +18,9 @@ export const TopMenu = () => {
       <section className='hidden items-center gap-6 sm:flex'>
         <Link
           className='hover:text-primary transition-all duration-300'
-          href='/categoria/ropa'
+          href='/categoria/remeras'
         >
-          Ropa
+          Remeras
         </Link>
         <Link
           className='hover:text-primary transition-all duration-300'
@@ -30,9 +30,9 @@ export const TopMenu = () => {
         </Link>
         <Link
           className='hover:text-primary transition-all duration-300'
-          href='/categoria/zapatos'
+          href='/categoria/abrigos'
         >
-          Zapatos
+          Abrigos
         </Link>
       </section>
       <section className='flex items-center gap-6'>
