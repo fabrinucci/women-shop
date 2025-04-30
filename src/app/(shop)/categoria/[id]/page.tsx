@@ -1,16 +1,25 @@
 import { notFound } from 'next/navigation';
 
+import { initialData } from '@/seed';
+import { Title } from '@/components/ui';
+import { ProductGrid } from '@/components/products';
+
 interface Props {
   params: Promise<{ id: string }>;
 }
 
+const seedProducts = initialData.products;
+
 export default async function Category({ params }: Props) {
   const { id } = await params;
 
-  if (id === 'boy') notFound();
+  const products = seedProducts.filter((product) => product.type === id);
+  if (products.length === 0) notFound();
+
   return (
-    <div>
-      <h1>Categoria {id}</h1>
-    </div>
+    <>
+      <Title title={id} subtitle='Todos los productos' />
+      <ProductGrid products={products} />
+    </>
   );
 }
