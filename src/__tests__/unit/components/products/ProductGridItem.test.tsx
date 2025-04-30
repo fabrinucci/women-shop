@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import type { Product } from '@/interfaces/products';
-import { ProductGridItem } from '@/components/products/product-grid/ProductGridItem';
+import { ProductGridItem } from '@/components/products/';
 
 describe('ProductGridItem', () => {
   const mockProduct = {
@@ -11,10 +11,9 @@ describe('ProductGridItem', () => {
     price: 200,
     sizes: ['XS', 'S', 'M'],
     slug: 'women_shirt',
-    type: 'shirts',
+    type: 'remeras',
     tags: ['jacket'],
     title: 'Women Shirt',
-    gender: 'women',
   } as Product;
 
   test('Render title, price and image correctly', () => {
@@ -26,8 +25,14 @@ describe('ProductGridItem', () => {
     const imgs = screen.getAllByRole('img');
 
     expect(imgs.length).toBe(2);
-    expect(imgs[0]).toHaveAttribute('src', `products/${mockProduct.images[0]}`);
-    expect(imgs[1]).toHaveAttribute('src', `products/${mockProduct.images[1]}`);
+    expect(imgs[0]).toHaveAttribute(
+      'src',
+      `/products/${mockProduct.images[0]}`,
+    );
+    expect(imgs[1]).toHaveAttribute(
+      'src',
+      `/products/${mockProduct.images[1]}`,
+    );
   });
 
   test('Have a link to the product', () => {
@@ -35,7 +40,7 @@ describe('ProductGridItem', () => {
     const links = screen.getAllByRole('link');
 
     links.forEach((link) =>
-      expect(link).toHaveAttribute('href', `producto/${mockProduct.slug}`),
+      expect(link).toHaveAttribute('href', `/producto/${mockProduct.slug}`),
     );
   });
 });

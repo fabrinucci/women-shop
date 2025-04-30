@@ -16,10 +16,9 @@ describe('ProductGrid', () => {
       price: 200,
       sizes: ['XS', 'S', 'M'],
       slug: 'women_shirt',
-      type: 'shirts',
+      type: 'remeras',
       tags: ['jacket'],
       title: 'Women Shirt',
-      gender: 'women',
     },
     {
       description: "Designed to celebrate Tesla's incredible performance mode.",
@@ -28,10 +27,9 @@ describe('ProductGrid', () => {
       price: 35,
       sizes: ['S', 'M'],
       slug: 'women_plaid_mode_tee',
-      type: 'shirts',
+      type: 'remeras',
       tags: ['shirt'],
       title: "Women's Plaid Mode Tee",
-      gender: 'women',
     },
   ] as Product[];
 
