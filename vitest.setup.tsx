@@ -28,3 +28,14 @@ vi.mock('next/image', () => ({
     <img {...props} />
   ),
 }));
+
+// css
+vi.mock('swiper/css', () => ({ default: '' }));
+vi.mock('swiper/css/free-mode', () => ({ default: '' }));
+vi.mock('swiper/css/pagination', () => ({ default: '' }));
+vi.mock('swiper/css/navigation', () => ({ default: '' }));
+vi.mock('swiper/css/thumbs', () => ({ default: '' }));
+
+vi.mock('@/components/product/slideshow/slideshow.css', () => ({
+  default: '',
+}));
