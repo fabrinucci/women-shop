@@ -3,16 +3,21 @@ export interface Product {
   images: string[];
   inStock: number;
   price: number;
-  sizes: ValidSizes[];
+  sizes: Size[];
   slug: string;
   tags: string[];
   title: string;
-  type: ValidTypes;
-  gender: 'men' | 'women' | 'kid' | 'unisex';
+  type: Type;
 }
 
-type ValidSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
-type ValidTypes = 'shirts' | 'pants' | 'hoodies' | 'hats';
+type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
+type Type =
+  | 'remeras'
+  | 'pantalones'
+  | 'abrigos'
+  | 'sombreros'
+  | 'carteras'
+  | 'vestidos';
 
 export interface ProductData {
   products: Product[];
