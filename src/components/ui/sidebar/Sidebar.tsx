@@ -78,7 +78,10 @@ export const Sidebar = () => {
             onClick={closeMenu}
             aria-label='Cerrar menu'
           >
-            <IoMdClose className='text-dark' size={30} />
+            <IoMdClose
+              className='text-dark hover:text-primary transition-all'
+              size={30}
+            />
           </button>
         </div>
 
@@ -103,7 +106,7 @@ export const Sidebar = () => {
               <FiUser size={30} />
               <span className='text-lg'>Perfil</span>
             </Link>
-            <Link href='/' className='flex items-center gap-3'>
+            <Link href='/auth/ingresar' className='flex items-center gap-3'>
               <HiOutlineLogin size={30} />
               <span className='text-lg'>Ingresar</span>
             </Link>
