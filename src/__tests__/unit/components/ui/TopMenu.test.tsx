@@ -14,17 +14,17 @@ describe('TopMenu', () => {
   });
 
   test('Render categories links', () => {
-    expect(screen.getByRole('link', { name: 'Ropa' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Remeras' })).toHaveAttribute(
       'href',
-      '/categoria/ropa',
+      '/categoria/remeras',
     );
     expect(screen.getByRole('link', { name: 'Carteras' })).toHaveAttribute(
       'href',
       '/categoria/carteras',
     );
-    expect(screen.getByRole('link', { name: 'Zapatos' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Abrigos' })).toHaveAttribute(
       'href',
-      '/categoria/zapatos',
+      '/categoria/abrigos',
     );
   });
 
