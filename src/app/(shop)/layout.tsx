@@ -1,4 +1,4 @@
-import { TopMenu } from '@/components/ui';
+import { Footer, TopMenu } from '@/components/ui';
 
 export default function ShopLayout({
   children,
@@ -6,9 +6,12 @@ export default function ShopLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className='min-h-screen'>
+    <div className='flex min-h-screen flex-col'>
       <TopMenu />
-      <div className='px-4 sm:px-8'>{children}</div>
-    </main>
+      <main className='flex-1'>
+        <div className='p-4 sm:p-8'>{children}</div>
+      </main>
+      <Footer />
+    </div>
   );
 }
