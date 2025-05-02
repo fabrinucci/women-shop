@@ -18,6 +18,7 @@ export const SizeSelector = ({ selectedSize, availableSizes }: Props) => {
               { 'bg-secondary text-white': selectedSize === size },
             )}
             key={size}
+            aria-pressed={selectedSize === size}
           >
             {size}
           </button>
