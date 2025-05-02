@@ -43,7 +43,7 @@ export const CartItem = ({ product, type }: Props) => {
               <QuantitySelector
                 quantity={2}
                 inStock={product.inStock}
-                size={22}
+                iconSize={22}
               />
             </div>
 

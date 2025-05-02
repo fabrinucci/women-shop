@@ -7,10 +7,10 @@ import { IoAddCircleOutline } from 'react-icons/io5';
 interface Props {
   quantity: number;
   inStock: number;
-  size: number;
+  iconSize: number;
 }
 
-export const QuantitySelector = ({ quantity, inStock, size }: Props) => {
+export const QuantitySelector = ({ quantity, inStock, iconSize }: Props) => {
   const [count, setCount] = useState(quantity);
 
   const handleAdd = () => {
@@ -27,12 +27,25 @@ export const QuantitySelector = ({ quantity, inStock, size }: Props) => {
   return (
     <div>
       <div className='flex items-center justify-center md:justify-start'>
-        <button onClick={handleRemove} className='cursor-pointer'>
-          <AiOutlineMinusCircle size={size} />
+        <button
+          onClick={handleRemove}
+          className='cursor-pointer'
+          aria-label='Remover un producto'
+        >
+          <AiOutlineMinusCircle size={iconSize} />
         </button>
-        <span className='rounded px-4 text-center'>{count}</span>
-        <button onClick={handleAdd} className='cursor-pointer'>
-          <IoAddCircleOutline size={size} />
+        <span
+          data-testid='quantity-product'
+          className='rounded px-4 text-center'
+        >
+          {count}
+        </span>
+        <button
+          onClick={handleAdd}
+          className='cursor-pointer'
+          aria-label='Agregar un producto'
+        >
+          <IoAddCircleOutline size={iconSize} />
         </button>
       </div>
     </div>

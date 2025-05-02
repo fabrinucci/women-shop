@@ -51,7 +51,7 @@ export default async function Product({ params }: Props) {
 
         <div>
           <p className='mb-4 text-lg font-semibold md:mb-2'>Cantidad</p>
-          <QuantitySelector quantity={1} inStock={inStock} size={30} />
+          <QuantitySelector quantity={1} inStock={inStock} iconSize={30} />
         </div>
 
         <div className='w-full'>
