@@ -48,7 +48,10 @@ export const CartItem = ({ product, type }: Props) => {
             </div>
 
             <div>
-              <button className='hover:text-dark cursor-pointer text-xs font-semibold text-zinc-700 underline underline-offset-2 transition-all duration-300 md:text-sm'>
+              <button
+                className='hover:text-dark cursor-pointer text-xs font-semibold text-zinc-700 underline underline-offset-2 transition-all duration-300 md:text-sm'
+                aria-label='Remover producto'
+              >
                 Remover
               </button>
             </div>
