@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest';
 import { CartItem } from '@/components/cart';
 import type { Product } from '@/interfaces/products';
 
-describe('ProductDesktopSlideshow', () => {
+describe('CartItem', () => {
   const mockProduct = {
     description: "Women's Quilted Shirt Jacket features a uniquely fit.",
     images: ['1740507-00-A_0_2000.jpg', '1740507-00-A_1.jpg'],
