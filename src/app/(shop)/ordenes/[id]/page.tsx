@@ -10,6 +10,7 @@ import { initialData } from '@/seed';
 export default async function Order({ params }: Props) {
   const { id } = await params;
   const cartProducts = initialData.products.slice(0, 3);
+
   return (
     <div className='px-4 sm:px-6 sm:py-6 lg:px-12'>
       <Title title={`Órden #${id}`} />

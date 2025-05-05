@@ -9,40 +9,47 @@ export default function CheckoutAddress() {
         <form className='flex w-full flex-col justify-center text-left xl:w-[1000px]'>
           <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-5'>
             <div className='mb-2 flex flex-col'>
-              <span>Nombres</span>
+              <label htmlFor='name'>Nombres</label>
               <input
-                type='text'
                 className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                type='text'
+                id='name'
               />
             </div>
 
             <div className='mb-2 flex flex-col'>
-              <span>Apellidos</span>
+              <label htmlFor='lastname'>Apellidos</label>
               <input
-                type='text'
                 className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                type='text'
+                id='lastname'
               />
             </div>
 
             <div className='mb-2 flex flex-col'>
-              <span>Dirección</span>
+              <label htmlFor='address'>Dirección</label>
               <input
-                type='text'
                 className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                type='text'
+                id='address'
               />
             </div>
 
             <div className='mb-2 flex flex-col'>
-              <span>Código postal</span>
+              <label htmlFor='postal-code'>Código postal</label>
               <input
-                type='text'
                 className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                type='text'
+                id='postal-code'
               />
             </div>
 
             <div className='mb-2 flex flex-col'>
-              <span>País</span>
-              <select className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'>
+              <label htmlFor='country'>País</label>
+              <select
+                className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                id='country'
+              >
                 <option value='' disabled>
                   [ Seleccione ]
                 </option>
@@ -51,26 +58,29 @@ export default function CheckoutAddress() {
             </div>
 
             <div className='mb-2 flex flex-col'>
-              <span>Provincia</span>
+              <label htmlFor='province'>Provincia</label>
               <input
-                type='text'
                 className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                type='text'
+                id='province'
               />
             </div>
 
             <div className='mb-2 flex flex-col'>
-              <span>Ciudad</span>
+              <label htmlFor='city'>Ciudad</label>
               <input
-                type='text'
                 className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                type='text'
+                id='city'
               />
             </div>
 
             <div className='mb-2 flex flex-col'>
-              <span>Teléfono</span>
+              <label htmlFor='tel'>Teléfono</label>
               <input
-                type='text'
                 className='bg-bgSecondary focus:border-primary rounded-md border-2 border-zinc-400 p-2 focus:outline-0'
+                type='tel'
+                id='tel'
               />
             </div>
 
