@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Empty() {
   return (
-    <main className='flex w-full flex-col items-center justify-center sm:flex-row'>
+    <section className='flex w-full flex-col items-center justify-center sm:flex-row'>
       <div className='max-w-xs text-center'>
         <h1 className='mb-6 text-3xl font-semibold antialiased sm:text-5xl'>
           Tu carrito esta vacío
@@ -20,6 +20,6 @@ export default function Empty() {
           width={350}
         />
       </div>
-    </main>
+    </section>
   );
 }
