@@ -1,12 +1,23 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
-  await page.goto('/');
-  await page.getByRole('link', { name: 'Ropa' }).click();
-  await page.getByRole('link', { name: 'Ropa' }).click();
-  await page.getByRole('link', { name: 'Carteras' }).click();
-  await page.getByRole('link', { name: 'Zapatos' }).click();
-  await page.getByRole('link', { name: 'Women | Clothes' }).click();
+test.describe.parallel('Test navigation', () => {
+  test('Should navigate to correct links', async ({ page }) => {
+    await page.goto('/');
 
-  await expect(page.getByRole('heading', { name: 'Tienda' })).toBeVisible();
+    await page.getByRole('link', { name: 'Remeras' }).click();
+    await page.waitForURL('/categoria/remeras');
+    await expect(page).toHaveURL('/categoria/remeras');
+
+    await page.getByRole('link', { name: 'Carteras' }).click();
+    await page.waitForURL('/categoria/carteras');
+    await expect(page).toHaveURL('/categoria/carteras');
+
+    await page.getByRole('link', { name: 'Abrigos' }).click();
+    await page.waitForURL('/categoria/abrigos');
+    await expect(page).toHaveURL('/categoria/abrigos');
+
+    await page.getByRole('link', { name: 'Go to home' }).click();
+    await page.waitForURL('/');
+    await expect(page).toHaveURL('/');
+  });
 });
