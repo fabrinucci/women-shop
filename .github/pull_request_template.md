@@ -1,10 +1,3 @@
-
----
-
-```md
-## 📌 PR Description
-Describe the changes made in this PR.
-
 ## 📋 Changes Checklist
 - [ ] Feature
 - [ ] Fix
@@ -14,6 +7,9 @@ Describe the changes made in this PR.
 - [ ] Documentation
 - [ ] Chore
 - [ ] CI
+
+## 📌 PR Description
+Describe the changes made in this PR.
 
 ## 🔗 Issue (if applicable)
 Issue Number: [Insert Issue Number]
