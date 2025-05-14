@@ -10,7 +10,8 @@ export interface Product {
   type: Type;
 }
 
-type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
+type Size = 'XS' | 'S' | 'M' | 'L' | 'XL';
+
 type Type =
   | 'remeras'
   | 'pantalones'
