@@ -16,6 +16,7 @@ const eslintConfig = [
       '@next/next/no-img-element': 0,
       'jsx-a11y/alt-text': 0,
     },
+    ignorePatterns: ['src/generated/prisma/'],
   },
 ];
 
