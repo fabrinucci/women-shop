@@ -33,6 +33,10 @@ yarn-error.log*
 # db
 /postgres/
 
+# prisma
+/src/generated/prisma/
+prisma/dev.db
+prisma/*.log
 
 # env files
 .env
