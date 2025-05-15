@@ -10,17 +10,49 @@ This project is an online store for women's clothing, handbags and exclusive acc
 - **CI/CD**: GitHub Actions
 - **ORM**: Prisma
 
-## 📦 Scripts
+## 📦 How to run in dev?
 
 ```bash
-## Development
-npm run dev
+## Clone repo
+git clone <repo-url>
 
-# Unit tests
+## Install dependencies
+npm install
+
+## Copy the ".env.template" file, rename it to ".env" and change the environment variables
+
+## Build up database
+docker compose up -d
+
+## Run migrations
+npx prisma migrate dev
+
+## Run seed
+npm run seed
+
+## Run project
+npm run dev
+```
+
+## 📤 How to collaborate in the project?
+
+*Before uploading your changes, you should check that the project runs correctly and without conflicts. For this purpose we check it with the following tests*
+
+```bash
+## Run build
+npm run build
+
+## Run preview
+npm run start
+
+## Unit tests
 npm run test:unit
 
-# E2E tests
+## E2E tests
 npm run test:e2e
 
-# Lint & format
+## Lint & format
 npm run lint
+```
+
+*If everything works correctly you can upload the changes in a special branch, with the name of the change or implementation. For example: **feat/improve-navigation**, and then create a pull request to the **dev** branch.*
