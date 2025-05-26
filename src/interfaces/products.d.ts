@@ -1,4 +1,5 @@
 export interface Product {
+  id: string;
   description: string;
   images: string[];
   inStock: number;
@@ -7,18 +8,13 @@ export interface Product {
   slug: string;
   tags: string[];
   title: string;
-  type: Type;
+  isFeatured: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  categoryId: string;
 }
 
 type Size = 'XS' | 'S' | 'M' | 'L' | 'XL';
-
-type Type =
-  | 'remeras'
-  | 'pantalones'
-  | 'abrigos'
-  | 'sombreros'
-  | 'carteras'
-  | 'vestidos';
 
 export interface ProductData {
   products: Product[];

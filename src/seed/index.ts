@@ -1,8 +1,32 @@
-import { Product } from '../interfaces/products';
-
 interface SeedData {
   categories: string[];
-  products: Product[];
+  products: SeedProduct[];
+}
+
+export interface SeedProduct {
+  description: string;
+  images: string[];
+  inStock: number;
+  price: number;
+  sizes: Size[];
+  slug: string;
+  tags: string[];
+  title: string;
+  type: Type;
+}
+
+type Size = 'XS' | 'S' | 'M' | 'L' | 'XL';
+
+type Type =
+  | 'remeras'
+  | 'pantalones'
+  | 'abrigos'
+  | 'sombreros'
+  | 'carteras'
+  | 'vestidos';
+
+export interface SeedProductData {
+  products: SeedProduct[];
 }
 
 export const initialData: SeedData = {
@@ -642,6 +666,30 @@ export const initialData: SeedData = {
       type: 'remeras',
       tags: ['shirt'],
       title: 'Kids Corp Jacket',
+    },
+    {
+      description:
+        'Introducing the Tesla Chill Collection. The Men’s Chill Crew Neck Sweatshirt has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The sweatshirt features a subtle thermoplastic polyurethane T logo on the chest and a Tesla wordmark below the back collar. Made from 60% cotton and 40% recycled polyester.',
+      images: ['54894.jpg', '189489.jpg'],
+      inStock: 10,
+      price: 10,
+      sizes: ['XS'],
+      slug: 'monedero_mujer_morado_ss',
+      type: 'carteras',
+      tags: ['cartera', 'morado'],
+      title: 'Monedero Morado Luxury SS',
+    },
+    {
+      description:
+        'Introducing the Tesla Chill Collection. The Men’s Chill Crew Neck Sweatshirt has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The sweatshirt features a subtle thermoplastic polyurethane T logo on the chest and a Tesla wordmark below the back collar. Made from 60% cotton and 40% recycled polyester.',
+      images: ['1894.jpg', '2154.jpg'],
+      inStock: 4,
+      price: 35,
+      sizes: ['S'],
+      slug: 'cartera_soft_tiny',
+      type: 'carteras',
+      tags: ['cartera'],
+      title: 'Cartera Soft Tiny',
     },
   ],
 };
