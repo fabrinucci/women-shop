@@ -4,6 +4,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { generatePagination } from '@/utils';
+import { useCallback, useMemo } from 'react';
 
 interface Props {
   totalPages: number;
@@ -14,26 +15,32 @@ export const Pagination = ({ totalPages }: Props) => {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
 
-  const pages = generatePagination({ totalPages, currentPage });
+  const pages = useMemo(
+    () => generatePagination({ totalPages, currentPage }),
+    [totalPages, currentPage],
+  );
 
-  const createUrl = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
+  const createUrl = useCallback(
+    (pageNumber: number | string) => {
+      const params = new URLSearchParams(searchParams);
 
-    if (pageNumber === '...') {
+      if (pageNumber === '...') {
+        return `${pathname}?${params}`;
+      }
+
+      if (Number(pageNumber) <= 0) {
+        return `${pathname}`;
+      }
+
+      if (currentPage > totalPages) {
+        return `${pathname}?${params}`;
+      }
+
+      params.set('page', pageNumber.toString());
       return `${pathname}?${params}`;
-    }
-
-    if (Number(pageNumber) <= 0) {
-      return `${pathname}`;
-    }
-
-    if (currentPage > totalPages) {
-      return `${pathname}?${params}`;
-    }
-
-    params.set('page', pageNumber.toString());
-    return `${pathname}?${params}`;
-  };
+    },
+    [pathname, searchParams, currentPage, totalPages],
+  );
 
   return (
     <div className='mt-14 mb-10 flex justify-center'>
@@ -41,6 +48,7 @@ export const Pagination = ({ totalPages }: Props) => {
         <ul className='flex gap-2'>
           <li>
             <Link
+              aria-label='Ir a la página anterior'
               className={clsx(
                 'page-link relative block rounded border-0 bg-transparent px-3 py-1.5 outline-none focus:shadow-none',
                 {
@@ -59,6 +67,7 @@ export const Pagination = ({ totalPages }: Props) => {
           {pages.map((page) => (
             <li key={page}>
               <Link
+                aria-label={`Ir a la página ${page}`}
                 className={clsx(
                   'relative block rounded border-0 px-3 py-1.5 outline-none',
                   {
@@ -78,6 +87,7 @@ export const Pagination = ({ totalPages }: Props) => {
           ))}
           <li>
             <Link
+              aria-label='Ir a la página siguiente'
               className={clsx(
                 'relative block rounded border-0 bg-transparent px-3 py-1.5 outline-none focus:shadow-none',
                 {
