@@ -13,6 +13,17 @@ export const generatePagination = ({ totalPages, currentPage }: Props) => {
   }
 
   if (currentPage >= totalPages - 2) {
+    if (currentPage === totalPages - 2) {
+      return [
+        1,
+        2,
+        '...',
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
+    }
     return [1, 2, '...', totalPages - 2, totalPages - 1, totalPages];
   }
 
