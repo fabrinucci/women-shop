@@ -66,23 +66,27 @@ export const Pagination = ({ totalPages }: Props) => {
           </li>
           {pages.map((page) => (
             <li key={page}>
-              <Link
-                aria-label={`Ir a la página ${page}`}
-                className={clsx(
-                  'relative block rounded border-0 px-3 py-1.5 outline-none',
-                  {
-                    'hover:bg-primary text-dark bg-transparent transition-all duration-300 ease-in hover:text-white focus:shadow-none':
-                      currentPage !== page,
-                  },
-                  {
-                    'bg-secondary text-white shadow-md focus:shadow-md':
-                      currentPage === page,
-                  },
-                )}
-                href={createUrl(page)}
-              >
-                {page} <span className='visually-hidden'></span>
-              </Link>
+              {page === '...' ? (
+                <span className='px-3 py-1.5 text-gray-500'>{page}</span>
+              ) : (
+                <Link
+                  aria-label={`Ir a la página ${page}`}
+                  className={clsx(
+                    'relative block rounded border-0 px-3 py-1.5 outline-none',
+                    {
+                      'hover:bg-primary text-dark bg-transparent transition-all duration-300 ease-in hover:text-white focus:shadow-none':
+                        currentPage !== page,
+                    },
+                    {
+                      'bg-secondary text-white shadow-md focus:shadow-md':
+                        currentPage === page,
+                    },
+                  )}
+                  href={createUrl(page)}
+                >
+                  {page} <span className='visually-hidden'></span>
+                </Link>
+              )}
             </li>
           ))}
           <li>
