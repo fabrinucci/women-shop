@@ -10,21 +10,19 @@ export const ProductGridItem = ({ product }: Props) => {
   const { title, images, price, slug } = product;
   return (
     <li className='fade-in overflow-hidden'>
-      <div className='group relative overflow-hidden rounded-lg'>
+      <div className='group relative aspect-[1/1] w-full overflow-hidden rounded-lg'>
         <Link href={`/producto/${slug}`}>
           <Image
             src={`/products/${images[0]}`}
             alt={product.title}
-            className='h-auto w-full transition-opacity duration-500 group-hover:opacity-0'
-            height={300}
-            width={300}
+            className='h-auto w-full object-cover transition-opacity duration-500 group-hover:opacity-0'
+            fill
           />
           <Image
             src={`/products/${images[1]}`}
             alt={product.title}
-            className='absolute top-0 left-0 h-auto w-full opacity-0 transition-opacity duration-500 group-hover:opacity-100'
-            height={300}
-            width={300}
+            className='absolute top-0 left-0 h-[auto] w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100'
+            fill
           />
         </Link>
       </div>
