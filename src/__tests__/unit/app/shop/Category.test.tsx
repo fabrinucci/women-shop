@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, Mock, test, vi } from 'vitest';
 import Category from '@/app/(shop)/categoria/[category]/page';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { getPaginatedProducts } from '@/actions';
 
 vi.mock('@/components/products', () => ({
@@ -23,7 +23,7 @@ vi.mock('@/actions', () => ({
 }));
 
 vi.mock('next/navigation', () => ({
-  redirect: vi.fn(),
+  notFound: vi.fn(),
 }));
 
 describe('Category', () => {
@@ -59,6 +59,6 @@ describe('Category', () => {
       params: Promise.resolve({ category: 'remeras' }),
       searchParams: Promise.resolve({ page: '2' }),
     });
-    expect(redirect).toHaveBeenCalledWith('/');
+    expect(notFound).toHaveBeenCalled();
   });
 });

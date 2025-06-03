@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { Pagination, Title } from '@/components/ui';
 import { ProductGrid } from '@/components/products';
 import { getPaginatedProducts } from '@/actions';
@@ -19,7 +19,7 @@ export default async function Category({ params, searchParams }: Props) {
     categoryName: category,
   });
 
-  if (products.length === 0) redirect(`/`);
+  if (products.length === 0) notFound();
 
   return (
     <>
