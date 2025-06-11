@@ -1,9 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, Mock, test, vi } from 'vitest';
-import Home from '@/app/(shop)/page';
-import { beforeEach } from 'node:test';
-import { getPaginatedProducts } from '@/actions';
 import { redirect } from 'next/navigation';
+import { render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, Mock, test, vi } from 'vitest';
+import Home from '@/app/(shop)/page';
+import { getPaginatedProducts } from '@/actions';
 
 vi.mock('@/components/products', () => ({
   ProductGrid: () => <div data-testid='ProductGrid'>Mocked ProductGrid</div>,
