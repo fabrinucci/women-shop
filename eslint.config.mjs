@@ -10,13 +10,15 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    ignores: ['src/generated/prisma/'],
+  },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     rules: {
       '@next/next/no-img-element': 0,
       'jsx-a11y/alt-text': 0,
     },
-    ignorePatterns: ['src/generated/prisma/'],
   },
 ];
 
