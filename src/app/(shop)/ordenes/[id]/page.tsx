@@ -5,11 +5,14 @@ interface Props {
 import { BiCreditCard } from 'react-icons/bi';
 import { CartItem } from '@/components/cart';
 import { Title } from '@/components/ui';
-import { initialData } from '@/seed';
+import { getPaginatedProducts } from '@/actions';
 
 export default async function Order({ params }: Props) {
   const { id } = await params;
-  const cartProducts = initialData.products.slice(0, 3);
+  const { products } = await getPaginatedProducts({
+    page: 1,
+  });
+  const cartProducts = products.slice(0, 3);
 
   return (
     <div className='px-4 sm:px-6 sm:py-6 lg:px-12'>

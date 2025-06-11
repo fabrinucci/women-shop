@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import { CartItem } from '@/components/cart';
 import { PrimaryLink, Title } from '@/components/ui';
-import { initialData } from '@/seed';
+import { getPaginatedProducts } from '@/actions';
 
 export default async function Cart() {
-  const cartProducts = initialData.products.slice(0, 3);
+  const { products } = await getPaginatedProducts({
+    page: 1,
+  });
+  const cartProducts = products.slice(0, 3);
   return (
     <div className='px-4 sm:px-6 sm:py-6 lg:px-12'>
       <Title title='Carrito' />

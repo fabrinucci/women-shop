@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { Pagination, Title } from '@/components/ui';
 import { ProductGrid } from '@/components/products';
 import { getPaginatedProducts } from '@/actions';
