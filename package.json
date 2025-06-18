@@ -10,7 +10,7 @@
     "seed": "ts-node src/seed/seed-database.ts",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
-    "test:e2e": "start-server-and-test dev http://localhost:3000 'playwright test'",
+    "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
