@@ -59,7 +59,7 @@ jobs:
 
       - name: Start the app & run E2E tests
         run: |
-          npx start-server-and-test preview http://localhost:3000 'npm run test:e2e'
+          npx start-server-and-test start http://localhost:3000 'npm run test:e2e'
         env:
           DATABASE_URL: ${{ env.DATABASE_URL }}
         timeout-minutes: 10
