@@ -24,6 +24,10 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
 
+    env:
+      DATABASE_URL: postgresql://postgres:123456@localhost:5432/women-clothes?schema=public
+      NODE_ENV: test
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,23 +43,16 @@ jobs:
       - name: Run Unit Tests
         run: npm run test:unit
 
-      - name: Generate Prisma client
-        run: npx prisma generate
+      - name: Setup .env.test
+        run: |
+          echo "DATABASE_URL=postgresql://postgres:123456@localhost:5432/women-clothes?schema=public" > .env.test
+          cp .env.test .env
 
       - name: Deploy DB schema
         run: npx prisma migrate deploy || npx prisma db push
 
       - name: Install Browsers
-        run: npx playwright install --with-deps
-
-      - name: Setup .env.test
-        run: |
-          echo "DATABASE_URL=postgresql://postgres:123456@localhost:5432/women-clothes?schema=public" > .env.test
-          cp .env.test .env
-        
-      - name: Setup environment variables
-        run: |
-          echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/testdb_e2e?schema=public" >> $GITHUB_ENV
+        run: npx playwright install --with-deps      
 
       - name: Start the app & Run E2E tests
         run: npm run test:e2e
