@@ -8,12 +8,11 @@ on:
 
 jobs:
   test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
 
     services:
       postgres:
-        image: postgres:15
+        image: postgres:16
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: 123456
@@ -24,20 +23,21 @@ jobs:
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
-          --health-retries 5
-
-    env:
-      DATABASE_URL: postgresql://postgres:123456@localhost:5432/women-clothes
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run Unit Tests
+        run: npm run test:unit
 
       - name: Generate Prisma client
         run: npx prisma generate
@@ -45,11 +45,17 @@ jobs:
       - name: Deploy DB schema
         run: npx prisma migrate deploy || npx prisma db push
 
-      - name: Run Unit Tests
-        run: npm run test:unit
-
       - name: Install Browsers
         run: npx playwright install --with-deps
+
+      - name: Setup .env.test
+        run: |
+          echo "DATABASE_URL=postgresql://postgres:123456@localhost:5432/women-clothes?schema=public" > .env.test
+          cp .env.test .env
+        
+      - name: Setup environment variables
+        run: |
+          echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/testdb_e2e?schema=public" >> $GITHUB_ENV
 
       - name: Start the app & Run E2E tests
         run: npm run test:e2e
